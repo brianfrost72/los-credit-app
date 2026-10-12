@@ -1,0 +1,43 @@
+<div class="form-card">
+	<header class="form-heading">
+		<h2>Welcome Back</h2>
+		<p class="lead-sm">Sign in to secure credit administration console</p>
+	</header>
+
+	<form id="auth-form" novalidate>
+		<div class="mb-3 auth-field">
+			<label for="input_email" class="form-label fw-semibold">Email address</label>
+			<div class="form-control-feedback form-control-feedback-start">
+				<div class="form-control-feedback-icon">
+					<i class="bi bi-envelope" aria-hidden="true"></i>
+				</div>
+				<input type="email" class="form-control" id="input_email" placeholder="alexander.wijaya@aggrecapital.co.id" autocomplete="email">
+			</div>
+		</div>
+
+		<div class="mb-3 auth-field">
+			<label class="form-label fw-semibold" for="input_password">Password</label>
+			<div class="form-control-feedback form-control-feedback-start form-control-feedback-end">
+				<div class="form-control-feedback-icon">
+					<i class="bi bi-lock" aria-hidden="true"></i>
+				</div>
+				<input type="password" class="form-control" id="input_password" placeholder="••••••••••••" autocomplete="current-password">
+				<button type="button" class="form-control-feedback-icon password-toggle" aria-label="Show password" data-toggle-password>
+					<i class="bi bi-eye" aria-hidden="true"></i><span>Show</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="auth-options">
+			<div class="form-check d-flex align-items-center mb-0">
+				<input class="form-check-input" type="checkbox" id="remember" checked>
+				<label class="form-check-label" for="remember">Remember me</label>
+			</div>
+			<a href="#" class="link-accent">Forgot password?</a>
+		</div>
+
+		<button type="submit" class="btn btn-primary w-100">Sign In</button>
+		<div class="auth-divider" aria-hidden="true"><span>OR</span></div>
+		<button type="button" class="btn btn-sso w-100"><i class="bi bi-x-circle" aria-hidden="true"></i>Sign in with SSO</button>
+	</form>
+</div>

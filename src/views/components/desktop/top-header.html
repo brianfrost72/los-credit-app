@@ -1,0 +1,59 @@
+﻿<div class="top-header__inner">
+    <nav class="top-header__breadcrumb" aria-label="Breadcrumb">
+        <a href="#">Dashboard</a>
+        <span class="top-header__breadcrumb-separator">/</span>
+        <span class="top-header__breadcrumb-current">Loan Applications</span>
+        <span class="top-header__breadcrumb-separator">/</span>
+        <span class="top-header__breadcrumb-current">Application Lists</span>
+    </nav>
+
+    <form class="top-header__search" role="search">
+        <i
+            class="fa-solid fa-magnifying-glass top-header__search-icon"
+            aria-hidden="true"
+        ></i>
+        <input
+            class="top-header__search-input"
+            type="search"
+            placeholder="Search application, borrower, NIK/NIB, contract number..."
+            aria-label="Search application"
+        />
+    </form>
+
+    <div class="top-header__actions">
+        <button class="top-header__filter" type="button">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span class="top-header__filter-label">All Branches</span>
+            <i
+                class="fa-solid fa-chevron-down top-header__chevron"
+                aria-hidden="true"
+            ></i>
+        </button>
+
+        <button class="top-header__filter" type="button">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            <span class="top-header__filter-label">This Month</span>
+            <i
+                class="fa-solid fa-chevron-down top-header__chevron"
+                aria-hidden="true"
+            ></i>
+        </button>
+
+        <button
+            class="top-header__notification"
+            id="notificationTrigger"
+            type="button"
+            aria-label="Open notifications"
+            aria-haspopup="dialog"
+            aria-controls="notificationModal"
+            aria-expanded="false"
+        >
+            <i class="fa-regular fa-bell" aria-hidden="true"></i>
+            <span
+                class="top-header__notification-badge"
+                id="notificationHeaderBadge"
+                >5</span
+            >
+        </button>
+    </div>
+</div>

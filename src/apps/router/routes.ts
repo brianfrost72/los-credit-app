@@ -1,0 +1,88 @@
+﻿import type { Route } from "./types";
+
+export const routes: Route[] = [
+    {
+        path: "/",
+        title: "Login",
+        layout: "auth_layout",
+        guest: true,
+        page: "auth/login",
+    },
+    // {
+    // 	path: "/forgot-password",
+    // 	title: "Forgot Password",
+    // 	layout: "auth_layout",
+    // 	guest: true,
+    // 	page: "auth/forgot-password",
+    // },
+    {
+        path: "/dashboard",
+        title: "Dashboard",
+        layout: "main_layout",
+        page: "dashboard/index",
+        guest: true,
+    },
+    {
+		path: "/dashboard",
+		title: "Dashboard",
+        layout: "main_layout",
+        page: "dashboard/app-list",
+        guest: true,
+    },
+    {
+        path: "/master/departments",
+        title: "Master Data - Departemen",
+        layout: "main_layout",
+        page: "master/departement",
+        auth: true,
+    },
+    {
+        path: "/master/positions",
+        title: "Master Data - Positions",
+        layout: "main_layout",
+        page: "master/positions",
+        auth: true,
+    },
+    {
+        path: "/master/employees",
+        title: "Master Data - Employees",
+        layout: "main_layout",
+        page: "master/employees",
+        auth: true,
+    },
+    {
+        path: "/master/employees/form",
+        title: "Master Data - Form Employees",
+        layout: "main_layout",
+        page: "master/employees/form",
+        auth: true,
+    },
+    {
+        path: "/chatbot",
+        title: "Chatbot AI",
+        layout: "chatbot_layout",
+        page: "chatbot/chatbot",
+        auth: true,
+    },
+    {
+        path: "/master/system-settings",
+        title: "Master Data - Settings",
+        layout: "main_layout",
+        page: "master/system-settings",
+        auth: true,
+    },
+    {
+        path: "/administration/roles",
+        title: "Roles",
+        layout: "main_layouts",
+        page: "administration/roles",
+        auth: true,
+    },
+    {
+        path: "/administration/menu-management",
+        title: "Menu Management",
+        layout: "main_layouts",
+        page: "administration/menu-management-list",
+        auth: true,
+    },
+];

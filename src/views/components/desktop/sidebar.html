@@ -1,0 +1,275 @@
+﻿<!-- Sidebar Toggle -->
+<button
+    type="button"
+    class="sidebar-toggle"
+    id="sidebarToggle"
+    aria-label="Collapse sidebar"
+    aria-expanded="true"
+>
+    <i class="fa-solid fa-chevron-left"></i>
+</button>
+
+<div class="sidebar-brand">
+    <div class="brand-main">
+        <div class="brand-icon">
+            <img
+                src="https://los-credit-main.test:3410/assets/images/aggre-logo.png"
+                alt="Aggre Capital Logo"
+            />
+        </div>
+
+        <h1>AGGRE CAPITAL</h1>
+    </div>
+
+    <p class="brand-subtitle">Loan Origination System v2.0</p>
+</div>
+
+<!-- =========================
+         MENU CONTAINER
+         ========================= -->
+<nav class="sidebar-menu">
+    <a href="/" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-house"></i>
+        </span>
+
+        <span class="menu-text"> Dashboard </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <!-- =========================
+         SECTION HEAD
+         ========================= -->
+    <!-- Section -->
+    <div class="sidebar-section-head">
+        <span class="section-head-text"> LENDING OPERATIONS </span>
+    </div>
+
+    <!-- Parent Menu -->
+    <a
+        href="#"
+        class="sidebar-menu-item menu-parent"
+        data-submenu="loanApplicationsSubmenu"
+    >
+        <span class="menu-icon">
+            <i class="fa-regular fa-file-lines"></i>
+        </span>
+
+        <span class="menu-text"> Loan Applications </span>
+
+        <!-- Arrow Dropdown -->
+        <span class="menu-arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+        </span>
+    </a>
+
+    <!-- Submenu -->
+    <div class="sidebar-submenu" id="loanApplicationsSubmenu">
+        <a href="<?= base_url('app-data') ?>" class="sidebar-submenu-item">
+            <span class="submenu-icon">
+                <i class="fa-solid fa-plus"></i>
+            </span>
+
+            <span class="submenu-text"> New Application </span>
+        </a>
+
+        <a href="<?= base_url('app-list') ?>" class="sidebar-submenu-item">
+            <span class="submenu-icon">
+                <i class="fa-solid fa-list"></i>
+            </span>
+
+            <span class="submenu-text"> Application List </span>
+        </a>
+
+        <a href="<?= base_url('drafts') ?>" class="sidebar-submenu-item">
+            <span class="submenu-icon">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </span>
+
+            <span class="submenu-text"> Draft Applications </span>
+        </a>
+
+        <a href="<?= base_url('returned-app') ?>" class="sidebar-submenu-item">
+            <span class="submenu-icon">
+                <i class="fa-solid fa-reply"></i>
+            </span>
+
+            <span class="submenu-text"> Returned Applications </span>
+        </a>
+    </div>
+
+    <a
+        href="#"
+        class="sidebar-menu-item menu-parent"
+        data-submenu="collateralAppraisalSubmenu"
+    >
+        <span class="menu-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </span>
+
+        <span class="menu-text"> Collateral Appraisal </span>
+
+        <span class="menu-arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+        </span>
+    </a>
+
+    <div class="sidebar-submenu" id="collateralAppraisalSubmenu">
+        <a
+            href="<?= base_url('appraisal-list') ?>"
+            class="sidebar-submenu-item"
+        >
+            <span class="submenu-icon">
+                <i class="fa-solid fa-list"></i>
+            </span>
+            <span class="submenu-text"> Appraisal Task List </span>
+        </a>
+
+        <a
+            href="<?= base_url('draft-appraisal') ?>"
+            class="sidebar-submenu-item"
+        >
+            <span class="submenu-icon">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </span>
+            <span class="submenu-text"> Draft Appraisal </span>
+        </a>
+    </div>
+
+    <a href="credit-analysis.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-chart-line"></i>
+        </span>
+
+        <span class="menu-text"> Credit Analysis </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <a href="credit-committee.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-users"></i>
+        </span>
+
+        <span class="menu-text"> Credit Committee </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <!-- =========================
+         SECTION HEAD 2
+         ========================= -->
+    <!-- Section -->
+    <div class="sidebar-section-head">
+        <span class="section-head-text"> POST-APPROVAL </span>
+    </div>
+
+    <a href="lender.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-suitcase"></i>
+        </span>
+
+        <span class="menu-text"> Lender </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <a href="legal-agreement.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-regular fa-bookmark"></i>
+        </span>
+
+        <span class="menu-text"> Legal & Agreement </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <a href="disbursement.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+        </span>
+
+        <span class="menu-text"> Disbursement </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <a href="monitoring-collection.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-chart-line"></i>
+        </span>
+
+        <span class="menu-text"> Monitoring & Collection </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+
+    <!-- =========================
+         SECTION HEAD 3
+         ========================= -->
+    <!-- Section -->
+    <div class="sidebar-section-head">
+        <span class="section-head-text"> SYSTEMS </span>
+    </div>
+
+    <a href="system-settings.php" class="sidebar-menu-item">
+        <span class="menu-icon">
+            <i class="fa-solid fa-cog"></i>
+        </span>
+
+        <span class="menu-text"> Systems Settings </span>
+
+        <span class="menu-indicator"></span>
+    </a>
+</nav>
+
+<!-- =========================
+     SIDEBAR FOOTER
+     ========================= -->
+<div class="sidebar-footer">
+    <!-- Profile Section -->
+    <div class="sidebar-profile">
+        <!-- User Avatar -->
+        <div class="user-avatar">
+            <img
+                src="<?= base_url('assets/images/user-photos/user-avatar.png') ?>"
+                alt="User Profile"
+            />
+        </div>
+
+        <!-- User Details -->
+        <div class="user-details">
+            <div class="user-details">
+                <span class="user-name"> Alexander Wijaya </span>
+
+                <span class="user-role"> Credit Analyst </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="sidebar-footer-links">
+        <a href="help-center.php" class="help-center-link" title="Help Center">
+            <span class="help-icon-wrapper">
+                <span class="help-icon-circle">
+                    <i class="fa-solid fa-question"></i>
+                </span>
+            </span>
+
+            <span class="help-center-text"> Help Center </span>
+        </a>
+
+        <!-- Logout Button -->
+        <button
+            type="button"
+            class="logout-button"
+            aria-label="Logout"
+            title="Logout"
+        >
+            <span class="logout-icon-wrapper">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+        </button>
+    </div>
+</div>

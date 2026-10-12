@@ -1,0 +1,58 @@
+﻿@import "base/root.css";
+@import "components/button.css";
+@import "components/form.css";
+@import "components/sidebar.css";
+@import "pages/auth.css";
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--bs-lime-hover);
+    outline-offset: 2px;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#app {
+    width: 100%;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 0;
+}
+
+h1,
+h2 {
+    font-family: var(--bs-body-font-heading);
+}

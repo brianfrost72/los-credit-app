@@ -1,0 +1,85 @@
+:root {
+	--bs-body-font-family: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
+	--bs-body-font-heading: 'Fraunces Variable', serif;
+
+	--bs-body-bg: hsl(var(--body-bg));
+	--bs-body-color: hsl(var(--body-color));
+
+	--bs-body-font-size-sm: 0.75rem;
+	--bs-body-font-size: 0.875rem;
+
+	--bs-border-radius-sm: 0.25rem;
+	--bs-border-radius-md: 0.375rem;
+	--bs-border-radius: 0.875rem;
+
+	--bs-body-line-height: 1.5715;
+	--bs-body-line-height-computed: calc(1375rem / 1000);
+	--bs-icon-font-size: 1.25rem;
+	--bs-sidebar-width: 18.75rem;
+	--bs-navbar-height: 71px;
+}
+
+:root {
+	--text-white: #FFFFFF;
+	--text-white-rgb: 255, 255, 255;
+
+	--bg-white: #FFFFFF;
+	--bg-white-rgb: 255, 255, 255;
+}
+
+:root,
+[data-bs-theme="light"] {
+	--body-bg: #f8fafc;
+	--body-bg-rgb: 248, 250, 252;
+	--body-color: #0f172a;
+	--body-color-rgb: 15, 23, 42;
+
+	--bs-heading-color: #1e293b;
+	--text-muted: #64748b;
+
+	/* Surface */
+	--surface-hover: #f5f7fa;
+
+	--bs-input-bg: var(--bg-white);
+	--bs-input-border: #dfe4ec;
+
+
+	/* Corporate Accent */
+	--bs-accent: #153f32;
+	--bs-accent-rgb: 21, 63, 50;
+	--bs-accent-hover: #285C43;
+	--bs-accent-hover-rgb: 40, 92, 67;
+	--bs-accent-active: #24533c;
+	--bs-accent-active-rgb: 36, 83, 60;
+	--bs-accent-text-emphasis: #081914;
+	--bs-accent-text-emphasis-rgb: 8, 25, 20;
+	--bs-accent-bg-subtle: #d0d9d6;
+	--bs-accent-bg-subtle-rgb: 208, 217, 214;
+	--bs-accent-border-subtle: #a1b2ad;
+	--bs-accent-border-subtle-rgb: 161, 178, 173;
+
+	/* Corporate Lime */
+	--bs-lime: #b7ff5a;
+	--bs-lime-rgb: 183, 255, 90;
+	--bs-lime-hover: #a9eb46;
+	--bs-lime-hover-rgb: 169, 235, 70;
+	--bs-lime-active: #91d52d;
+	--bs-lime-active-rgb: 145, 213, 45;
+	--bs-button-bg: var(--bs-lime);
+	--bs-button-hover-bg: var(--bs-lime-hover);
+	--bs-button-active-bg: var(--bs-lime-active);
+	--bs-button-color: #080a08;
+	--bs-button-focus-rgb: var(--bs-lime-rgb);
+	--bs-lime-text-emphasis: #43582a;
+	--bs-lime-text-emphasis-rgb: 67, 88, 42;
+	--bs-lime-bg-subtle: #f1fbdc;
+	--bs-lime-bg-subtle-rgb: 241, 251, 220;
+	--bs-lime-border-subtle: #d5eea8;
+	--bs-lime-border-subtle-rgb: 213, 238, 168;
+	--bs-accent-1: #0ea5a4;
+	--bs-accent-rgb-1: 14, 165, 164;
+}
+
+[data-bs-theme="dark"] {
+
+}

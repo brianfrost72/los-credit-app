@@ -1,0 +1,147 @@
+.form-control-feedback {
+	position: relative;
+}
+
+.form-control-feedback-icon {
+	--bs-input-icon-padding-y: 0.625rem;
+	--bs-input-icon-padding-x: 0.875rem;
+	position: absolute;
+	top: calc(var(--bs-border-width) + calc(var(--bs-body-line-height-computed) - var(--bs-icon-font-size)) * .5);
+	color: rgba(var(--bs-body-color-rgb),.75);
+	padding: var(--bs-input-icon-padding-y) var(--bs-input-icon-padding-x);
+	min-width: 1em;
+	display: flex;
+	align-items: center;
+	z-index: 5;
+}
+
+.form-control {
+	--bs-input-padding-y: 0.625rem;
+	--bs-input-padding-x: 0.875rem;
+	--bs-input-font-size: var(--bs-body-font-size);
+	--bs-input-line-height: var(--bs-body-line-height);
+	--bs-input-border-radius: 0.625rem;
+	--bs-input-border-hover-bg:	var(--bg-white);
+	--bs-input-border-hover-color:	var(--bs-lime-hover);
+	padding: var(--bs-input-padding-y) var(--bs-input-padding-x);
+	display: block;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	font-size: var(--bs-input-font-size);
+	line-height: var(--bs-input-line-height);
+	background-color: var(--bs-input-bg);
+	border: var(--bs-border-width) var(--bs-border-style) var(--bs-input-border);
+	border-radius: var(--bs-input-border-radius);
+}
+
+.form-control:focus {
+	border-color: var(--bs-input-border-hover-color);
+	background-color: var(--bs-input-border-hover-bg);
+	color: var(--body-color);
+	box-shadow: 0 0 0 3px rgba(var(--bs-lime-rgb), 0.28);
+}
+
+.form-control::placeholder {
+	color: var(--text-muted);
+}
+
+.form-control:focus-visible {
+	outline: 2px solid var(--bs-input-border-hover-color) !important;
+	outline-offset: 2px;
+}
+
+.form-control-feedback:focus-within > div > i {
+	color: var(--bs-input-border-hover-color) !important;
+}
+
+.form-control-feedback-start .form-control {
+	padding-left: calc(var(--bs-input-padding-x) * 2 + var(--bs-icon-font-size));
+}
+.form-control-feedback-end .form-control {
+	padding-right: calc(var(--bs-input-padding-x) * 2 + var(--bs-icon-font-size));
+}
+
+.form-control-feedback-start .form-control-feedback-icon:first-child {
+	left: 0;
+}
+.form-control-feedback-end .form-control-feedback-icon:last-child {
+	right: 0;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+	border-color: var(--bs-danger) !important;
+}
+
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+	box-shadow: none;
+}
+
+.form-control.is-invalid {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 15px center;
+	background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.form-control[type=password].is-invalid,
+.form-control[type=password].is-valid,
+.form-control-feedback:has(button.form-control-feedback-icon) .form-control.is-valid,
+.form-control-feedback:has(button.form-control-feedback-icon) .form-control.is-invalid {
+	padding-right: 4.5rem;
+	background-position: right 50px center;
+}
+
+
+button.form-control-feedback-icon {
+	border: none;
+	background: none;
+	padding-left: var(--bs-input-icon-padding-x);
+	padding-right: var(--bs-input-icon-padding-x);
+	pointer-events: auto;
+	cursor: pointer;
+
+	& :hover {
+		color: var(--bs-accent);
+	}
+
+	& :focus-visible {
+		outline: 0;
+		box-shadow: 0 0 0 3px rgba(13, 48, 39, 0.1);
+	}
+
+}
+
+.form-check-input {
+	--bs-form-check-bg: var(--bs-input-bg);
+	width: 18px;
+	height: 18px;
+	margin-top: 0;
+	border-color: var(--bs-input-border);
+	background-color: var(--bs-form-check-bg);
+}
+
+.form-check-input:checked {
+	background-color: var(--bs-accent);
+	border-color: var(--bs-accent);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.form-check-input:focus {
+	border-color: var(--lime-hover);
+	box-shadow: 0 0 0 3px rgba(var(--bs-lime-rgb), 0.28);
+}
+
+.form-check-label {
+	margin-left: 10px;
+	color: var(--muted-color);
+	font-size: 0.813rem;
+}
+
+.form-text {
+	--bs-form-text-color: rgba(var(--body-color-rgb), 0.75);
+	--bs-form-text-margin-top: 0.25rem;
+	--bs-form-text-font-size: 0.7rem;
+	margin-top: var(--bs-form-text-margin-top);
+	color: var(--bs-form-text-color);
+}

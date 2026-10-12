@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Aggre Capital &ndash; Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="<?= base_url('assets/css/sidebar.css') ?>">
+    <link
+        rel="stylesheet"
+        href="src/assets/css/main.css">
+</head>
+
+<body>
+    <main class="main-section">
+
+        <div class="main-container">
+            <section class="greetings-and-ctas" aria-labelledby="dashboard-greeting">
+                <div class="greeting">
+                    <h1 class="greeting__title" id="dashboard-greeting">Good afternoon, Alexander</h1>
+                    <p class="greeting__subtitle">Here's what requires your attention today.</p>
+                </div>
+
+                <div class="greetings-action">
+                    <button class="greetings-action__button greetings-action__button--primary" type="button">
+                        <i class="fa-solid fa-list" aria-hidden="true"></i>
+                        <span>View Analysis Queue</span>
+                    </button>
+
+                    <button class="greetings-action__button greetings-action__button--secondary" type="button">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <span>Search Application</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="kpi-row" aria-label="Dashboard key performance indicators">
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">Analysis Queue</span>
+                        <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
+                    </div>
+                    <p class="kpi-card__value">24</p>
+                    <div class="kpi-card__meta kpi-card__meta--success">
+                        <strong>+4 today</strong>
+                        <span>assigned to you</span>
+                    </div>
+                </article>
+
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">Awaiting Appraisal</span>
+                        <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
+                    </div>
+                    <p class="kpi-card__value">8</p>
+                    <div class="kpi-card__meta">
+                        <span>pending reports</span>
+                    </div>
+                </article>
+
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">Committee Revision</span>
+                        <span class="kpi-card__attention">Needs attention</span>
+                    </div>
+                    <p class="kpi-card__value">3</p>
+                    <div class="kpi-card__meta">
+                        <span>requiring corrections</span>
+                    </div>
+                </article>
+
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">SLA at Risk</span>
+                        <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
+                    </div>
+                    <p class="kpi-card__value">5</p>
+                    <div class="kpi-card__meta kpi-card__meta--danger">
+                        <strong>Warning</strong>
+                        <span>approaching deadlines</span>
+                    </div>
+                </article>
+
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">Total Proposed Amount</span>
+                        <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
+                    </div>
+                    <p class="kpi-card__value">Rp 8.75 B</p>
+                    <div class="kpi-card__meta">
+                        <span>active queue volume</span>
+                    </div>
+                </article>
+
+                <article class="kpi-card" tabindex="0">
+                    <div class="kpi-card__head">
+                        <span class="kpi-card__label">Average Processing Time</span>
+                        <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
+                    </div>
+                    <p class="kpi-card__value">3.2 days</p>
+                    <div class="kpi-card__meta kpi-card__meta--danger">
+                        <strong>-0.5 days</strong>
+                        <span>vs last month</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="priority-tasks" aria-labelledby="priority-tasks-title">
+                <div class="priority-tasks__header">
+                    <h2 class="priority-tasks__title" id="priority-tasks-title">My Priority Tasks</h2>
+
+                    <div class="priority-tasks__filters" role="group" aria-label="Priority task filters">
+                        <button class="priority-tasks__filter is-active" type="button">All</button>
+                        <button class="priority-tasks__filter" type="button">Urgent</button>
+                        <button class="priority-tasks__filter" type="button">Due Today</button>
+                        <button class="priority-tasks__filter" type="button">Overdue</button>
+                    </div>
+                </div>
+
+                <div class="priority-tasks__table-wrap">
+                    <table class="priority-tasks__table">
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Application No.</th>
+                                <th>Borrower</th>
+                                <th>Loan Amount</th>
+                                <th>Current Stage</th>
+                                <th>Appraisal Status</th>
+                                <th>SLA</th>
+                                <th>Assigned Since</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="priority-badge priority-badge--high">High</span></td>
+                                <td class="priority-tasks__application">LOS-JKT-202609-0142</td>
+                                <td>PT Sinar Abadi</td>
+                                <td class="priority-tasks__amount">Rp 750,000,000</td>
+                                <td>Credit Analysis</td>
+                                <td><span class="task-status task-status--success">Completed</span></td>
+                                <td><span class="task-sla task-sla--warning"><i class="fa-regular fa-clock" aria-hidden="true"></i>2h remaining</span></td>
+                                <td class="priority-tasks__date">16 Sep 2026</td>
+                                <td><button class="priority-action priority-action--primary" type="button">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="priority-badge priority-badge--high">High</span></td>
+                                <td class="priority-tasks__application">LOS-BDG-202609-0138</td>
+                                <td>Budi Santoso</td>
+                                <td class="priority-tasks__amount">Rp 350,000,000</td>
+                                <td>Credit Analysis</td>
+                                <td><span class="task-status task-status--warning">Awaiting Appraisal</span></td>
+                                <td><span class="task-sla task-sla--danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>SLA Risk</span></td>
+                                <td class="priority-tasks__date">16 Sep 2026</td>
+                                <td><button class="priority-action" type="button">Open</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="priority-badge priority-badge--medium">Medium</span></td>
+                                <td class="priority-tasks__application">LOS-JKT-202609-0131</td>
+                                <td>CV Maju Bersama</td>
+                                <td class="priority-tasks__amount">Rp 500,000,000</td>
+                                <td>Committee Revision</td>
+                                <td><span class="task-status task-status--success">Completed</span></td>
+                                <td><span class="task-sla">1 day</span></td>
+                                <td class="priority-tasks__date">15 Sep 2026</td>
+                                <td><button class="priority-action" type="button">Revise</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="priority-badge priority-badge--medium">Medium</span></td>
+                                <td class="priority-tasks__application">LOS-SBY-202609-0127</td>
+                                <td>PT Karya Utama</td>
+                                <td class="priority-tasks__amount">Rp 1,200,000,000</td>
+                                <td>Credit Analysis</td>
+                                <td><span class="task-status task-status--info">In Progress</span></td>
+                                <td><span class="task-sla">3 days</span></td>
+                                <td class="priority-tasks__date">14 Sep 2026</td>
+                                <td><button class="priority-action" type="button">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="priority-badge priority-badge--low">Low</span></td>
+                                <td class="priority-tasks__application">LOS-JKT-202609-0119</td>
+                                <td>Dewi Lestari</td>
+                                <td class="priority-tasks__amount">Rp 280,000,000</td>
+                                <td>Credit Analysis</td>
+                                <td><span class="task-status task-status--success">Completed</span></td>
+                                <td><span class="task-sla">5 days</span></td>
+                                <td class="priority-tasks__date">13 Sep 2026</td>
+                                <td><button class="priority-action" type="button">Review</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="dashboard-overview-row" aria-label="Credit pipeline and application status">
+                <article class="credit-pipeline-card" aria-labelledby="credit-pipeline-title">
+                    <div class="overview-card__header">
+                        <h2 class="overview-card__title" id="credit-pipeline-title">Credit Pipeline</h2>
+                        <button class="overview-card__info" type="button" aria-label="Credit pipeline information">
+                            <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="credit-pipeline-grid">
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Draft</span>
+                            <p class="pipeline-stage__value">18 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 3.1 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Submitted</span>
+                            <p class="pipeline-stage__value">12 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 2.4 B</span>
+                        </div>
+
+                        <div class="pipeline-stage pipeline-stage--active">
+                            <span class="pipeline-stage__label">Credit Analysis</span>
+                            <p class="pipeline-stage__value">24 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 8.7 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Committee L1</span>
+                            <p class="pipeline-stage__value">9 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 4.2 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Committee L2</span>
+                            <p class="pipeline-stage__value">3 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 1.5 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Waiting Lender</span>
+                            <p class="pipeline-stage__value">7 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 3.0 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Agreement</span>
+                            <p class="pipeline-stage__value">5 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 1.8 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Disbursement</span>
+                            <p class="pipeline-stage__value">4 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 1.2 B</span>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <span class="pipeline-stage__label">Active</span>
+                            <p class="pipeline-stage__value">128 <span>apps</span></p>
+                            <span class="pipeline-stage__amount">Rp 64.2 B</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="application-status-card" id="application-status-card" aria-labelledby="application-status-title">
+                    <div class="overview-card__header">
+                        <h2 class="overview-card__title" id="application-status-title">Application Status</h2>
+                    </div>
+
+                    <div class="application-status-card__body">
+                        <div class="application-status__donut" role="img" aria-label="249 total applications: 128 active, 60 in process, 24 approved, 11 rejected, 8 returned, and 18 draft">
+                            <div class="application-status__center">
+                                <strong>249</strong>
+                                <span>Total Apps</span>
+                            </div>
+                        </div>
+
+                        <ul class="application-status__legend" aria-label="Application status legend">
+                            <li><span class="status-dot status-dot--active"></span><span>Active</span><strong>128</strong></li>
+                            <li><span class="status-dot status-dot--process"></span><span>In Process</span><strong>60</strong></li>
+                            <li><span class="status-dot status-dot--approved"></span><span>Approved</span><strong>24</strong></li>
+                            <li><span class="status-dot status-dot--rejected"></span><span>Rejected</span><strong>11</strong></li>
+                            <li><span class="status-dot status-dot--returned"></span><span>Returned</span><strong>8</strong></li>
+                            <li><span class="status-dot status-dot--draft"></span><span>Draft</span><strong>18</strong></li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section class="dashboard-monitoring-row" aria-label="SLA monitoring and credit risk snapshot">
+                <article class="sla-monitoring-card" id="sla-monitoring-card" aria-labelledby="sla-monitoring-title">
+                    <div class="monitoring-card__header">
+                        <h2 class="monitoring-card__title" id="sla-monitoring-title">SLA Monitoring</h2>
+                    </div>
+
+                    <div class="sla-summary" aria-label="SLA summary">
+                        <div class="sla-summary__item">
+                            <div class="sla-summary__meta">
+                                <span>On Track</span>
+                                <span><strong>38</strong> <small>(73%)</small></span>
+                            </div>
+                            <div class="sla-progress" role="progressbar" aria-label="On Track" aria-valuemin="0" aria-valuemax="100" aria-valuenow="73">
+                                <span class="sla-progress__fill sla-progress__fill--success" style="--sla-progress: 73%; --sla-delay: 100ms;"></span>
+                            </div>
+                        </div>
+
+                        <div class="sla-summary__item">
+                            <div class="sla-summary__meta">
+                                <span>Approaching SLA</span>
+                                <span><strong>9</strong> <small>(17%)</small></span>
+                            </div>
+                            <div class="sla-progress" role="progressbar" aria-label="Approaching SLA" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17">
+                                <span class="sla-progress__fill sla-progress__fill--warning" style="--sla-progress: 17%; --sla-delay: 220ms;"></span>
+                            </div>
+                        </div>
+
+                        <div class="sla-summary__item">
+                            <div class="sla-summary__meta">
+                                <span>Overdue</span>
+                                <span><strong>5</strong> <small>(10%)</small></span>
+                            </div>
+                            <div class="sla-progress" role="progressbar" aria-label="Overdue" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+                                <span class="sla-progress__fill sla-progress__fill--danger" style="--sla-progress: 10%; --sla-delay: 340ms;"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sla-table-wrap">
+                        <table class="sla-table">
+                            <thead>
+                                <tr>
+                                    <th>Application</th>
+                                    <th>Stage</th>
+                                    <th>PIC</th>
+                                    <th>SLA Remaining</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="sla-table__application">LOS-JKT-202609-0142</td>
+                                    <td>Credit Analysis</td>
+                                    <td>Alexander W.</td>
+                                    <td class="sla-table__remaining">2h remaining</td>
+                                    <td><span class="sla-status sla-status--warning">Warning</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="sla-table__application">LOS-BDG-202609-0138</td>
+                                    <td>Appraisal</td>
+                                    <td>Hendra S.</td>
+                                    <td class="sla-table__remaining sla-table__remaining--danger">Lapsed</td>
+                                    <td><span class="sla-status sla-status--danger">Overdue</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="sla-table__application">LOS-SBY-202609-0127</td>
+                                    <td>Credit Analysis</td>
+                                    <td>Rian P.</td>
+                                    <td class="sla-table__remaining">3 days</td>
+                                    <td><span class="sla-status sla-status--success">On Track</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="credit-risk-card" aria-labelledby="credit-risk-title">
+                    <div class="monitoring-card__header">
+                        <h2 class="monitoring-card__title" id="credit-risk-title">Credit Risk Snapshot</h2>
+                    </div>
+
+                    <div class="credit-risk-grid">
+                        <div class="risk-metric">
+                            <div class="risk-metric__head">
+                                <span>Avg Proposed LTV</span>
+                                <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                            </div>
+                            <strong class="risk-metric__value">54.8%</strong>
+                        </div>
+
+                        <div class="risk-metric">
+                            <div class="risk-metric__head">
+                                <span>Avg Collateral MV</span>
+                                <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                            </div>
+                            <strong class="risk-metric__value">182%</strong>
+                            <span class="risk-metric__caption">Market Value</span>
+                        </div>
+
+                        <div class="risk-metric">
+                            <div class="risk-metric__head">
+                                <span>Avg Collateral LV</span>
+                            </div>
+                            <strong class="risk-metric__value">143%</strong>
+                            <span class="risk-metric__caption">Liquidation Value</span>
+                        </div>
+
+                        <div class="risk-metric">
+                            <div class="risk-metric__head">
+                                <span>Avg DSC Ratio</span>
+                            </div>
+                            <strong class="risk-metric__value">1.76x</strong>
+                            <span class="risk-metric__caption">Debt Service Coverage</span>
+                        </div>
+
+                        <div class="risk-metric risk-metric--alert">
+                            <div class="risk-metric__head">
+                                <span>Apps with Red Flags</span>
+                            </div>
+                            <strong class="risk-metric__value risk-metric__value--danger">7</strong>
+                        </div>
+
+                        <div class="risk-metric risk-metric--alert">
+                            <div class="risk-metric__head">
+                                <span>High DPD Active Loans</span>
+                            </div>
+                            <strong class="risk-metric__value risk-metric__value--danger">12</strong>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="portfolio-quality-card" id="portfolio-quality-card" aria-labelledby="portfolio-quality-title">
+                <div class="portfolio-quality__header">
+                    <div class="portfolio-quality__heading">
+                        <h2 class="portfolio-quality__title" id="portfolio-quality-title">Portfolio Quality (DPD Buckets)</h2>
+                        <p class="portfolio-quality__subtitle">Distribution of outstanding active loan accounts across Days Past Due categories.</p>
+                    </div>
+
+                    <div class="portfolio-quality__toggle" role="group" aria-label="Portfolio quality view">
+                        <button class="portfolio-quality__toggle-btn is-active" type="button">Loans</button>
+                        <button class="portfolio-quality__toggle-btn" type="button">Outstanding Balance</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-quality__body">
+                    <div class="dpd-bar" role="img" aria-label="DPD distribution: 72 percent current, 11 percent DPD 1 to 30, 6 percent DPD 31 to 60, 4 percent DPD 61 to 90, 3 percent DPD 91 to 120, 2 percent DPD 121 to 180, and 2 percent over 180 days past due">
+                        <span class="dpd-bar__segment dpd-bar__segment--current" style="--bucket-width: 72%; --bucket-delay: 80ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--30" style="--bucket-width: 11%; --bucket-delay: 160ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--60" style="--bucket-width: 6%; --bucket-delay: 240ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--90" style="--bucket-width: 4%; --bucket-delay: 320ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--120" style="--bucket-width: 3%; --bucket-delay: 400ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--180" style="--bucket-width: 2%; --bucket-delay: 480ms;"></span>
+                        <span class="dpd-bar__segment dpd-bar__segment--over" style="--bucket-width: 2%; --bucket-delay: 560ms;"></span>
+                    </div>
+
+                    <div class="dpd-legend" aria-label="DPD bucket details">
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--current"></span><strong>72%</strong></div>
+                            <span class="dpd-legend__label">Current (DPD 0)</span>
+                            <span class="dpd-legend__meta">112 loans • Rp 52.4 B</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--30"></span><strong>11%</strong></div>
+                            <span class="dpd-legend__label">DPD 1 - 30</span>
+                            <span class="dpd-legend__meta">21 loans • Rp 8.1 B</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--60"></span><strong>6%</strong></div>
+                            <span class="dpd-legend__label">DPD 31 - 60</span>
+                            <span class="dpd-legend__meta">12 loans • Rp 3.2 B</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--90"></span><strong>4%</strong></div>
+                            <span class="dpd-legend__label">DPD 61 - 90</span>
+                            <span class="dpd-legend__meta">6 loans • Rp 1.8 B</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--120"></span><strong>3%</strong></div>
+                            <span class="dpd-legend__label">DPD 91 - 120</span>
+                            <span class="dpd-legend__meta">3 loans • Rp 850 M</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--180"></span><strong>2%</strong></div>
+                            <span class="dpd-legend__label">DPD 121 - 180</span>
+                            <span class="dpd-legend__meta">2 loans • Rp 400 M</span>
+                        </div>
+                        <div class="dpd-legend__item">
+                            <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--over"></span><strong>2%</strong></div>
+                            <span class="dpd-legend__label">DPD &gt; 180</span>
+                            <span class="dpd-legend__meta">1 loan • Rp 120 M</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-applications-card" aria-labelledby="recent-applications-title">
+                <div class="recent-applications__header">
+                    <h2 class="recent-applications__title" id="recent-applications-title">Recent Loan Applications</h2>
+
+                    <div class="recent-applications__header-actions">
+                        <button class="recent-applications__export" type="button">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            <span>Export to Excel</span>
+                        </button>
+                        <button class="recent-applications__settings" type="button" aria-label="Table display settings">
+                            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recent-applications__toolbar" aria-label="Recent applications filters">
+                    <label class="recent-applications__search">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input type="search" placeholder="Search applications..." aria-label="Search recent applications">
+                    </label>
+
+                    <button class="recent-applications__filter" type="button">
+                        <span>Status</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <button class="recent-applications__filter" type="button">
+                        <span>Branch</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <button class="recent-applications__filter" type="button">
+                        <span>Borrower Type</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <button class="recent-applications__filter" type="button">
+                        <span>SLA Status</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="recent-applications__table-wrap">
+                    <table class="recent-applications__table">
+                        <thead>
+                            <tr>
+                                <th>Application No.</th>
+                                <th>App Date</th>
+                                <th>Borrower</th>
+                                <th>Type</th>
+                                <th>Branch</th>
+                                <th>Marketing</th>
+                                <th>Requested Amount</th>
+                                <th>Tenor</th>
+                                <th>Collateral</th>
+                                <th>Status</th>
+                                <th>SLA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="recent-applications__application">LOS-JKT-202609-0142</td>
+                                <td>16 Sep 2026</td>
+                                <td class="recent-applications__borrower">PT Sinar Abadi</td>
+                                <td>Corporate</td>
+                                <td>Jakarta</td>
+                                <td>Andi Wijaya</td>
+                                <td class="recent-applications__amount">Rp 750M</td>
+                                <td>36mo</td>
+                                <td>Ruko</td>
+                                <td><span class="recent-status recent-status--analysis">Credit Analysis</span></td>
+                                <td><span class="recent-sla recent-sla--warning"><i class="fa-regular fa-clock" aria-hidden="true"></i>2h</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-BDG-202609-0138</td>
+                                <td>16 Sep 2026</td>
+                                <td class="recent-applications__borrower">Budi Santoso</td>
+                                <td>Individual</td>
+                                <td>Bandung</td>
+                                <td>Rina S.</td>
+                                <td class="recent-applications__amount">Rp 350M</td>
+                                <td>24mo</td>
+                                <td>SHM Tanah</td>
+                                <td><span class="recent-status recent-status--appraisal">Appraisal</span></td>
+                                <td><span class="recent-sla recent-sla--danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>Risk</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-JKT-202609-0131</td>
+                                <td>15 Sep 2026</td>
+                                <td class="recent-applications__borrower">CV Maju Bersama</td>
+                                <td>SME</td>
+                                <td>Jakarta</td>
+                                <td>Setyo B.</td>
+                                <td class="recent-applications__amount">Rp 500M</td>
+                                <td>12mo</td>
+                                <td>Inventory</td>
+                                <td><span class="recent-status recent-status--revision">Revision</span></td>
+                                <td><span class="recent-sla">1 day</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-SBY-202609-0127</td>
+                                <td>14 Sep 2026</td>
+                                <td class="recent-applications__borrower">PT Karya Utama</td>
+                                <td>Corporate</td>
+                                <td>Surabaya</td>
+                                <td>Eko Prasetyo</td>
+                                <td class="recent-applications__amount">Rp 1.2B</td>
+                                <td>48mo</td>
+                                <td>Machinery</td>
+                                <td><span class="recent-status recent-status--analysis">Credit Analysis</span></td>
+                                <td><span class="recent-sla">3 days</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-JKT-202609-0119</td>
+                                <td>13 Sep 2026</td>
+                                <td class="recent-applications__borrower">Dewi Lestari</td>
+                                <td>Individual</td>
+                                <td>Jakarta</td>
+                                <td>Andi Wijaya</td>
+                                <td class="recent-applications__amount">Rp 280M</td>
+                                <td>24mo</td>
+                                <td>Car BPKB</td>
+                                <td><span class="recent-status recent-status--approved">Approved</span></td>
+                                <td><span class="recent-sla recent-sla--success">On Track</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-SBY-202609-0110</td>
+                                <td>12 Sep 2026</td>
+                                <td class="recent-applications__borrower">PT Global Tech</td>
+                                <td>Corporate</td>
+                                <td>Surabaya</td>
+                                <td>Eko Prasetyo</td>
+                                <td class="recent-applications__amount">Rp 2.5B</td>
+                                <td>60mo</td>
+                                <td>Office Bldg</td>
+                                <td><span class="recent-status recent-status--active">Active Loan</span></td>
+                                <td><span class="recent-sla recent-sla--success">On Track</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-MDN-202609-0105</td>
+                                <td>10 Sep 2026</td>
+                                <td class="recent-applications__borrower">Siti Rahma</td>
+                                <td>Individual</td>
+                                <td>Medan</td>
+                                <td>Hendra K.</td>
+                                <td class="recent-applications__amount">Rp 150M</td>
+                                <td>12mo</td>
+                                <td>Tanah</td>
+                                <td><span class="recent-status recent-status--draft">Draft</span></td>
+                                <td><span class="recent-sla">5 days</span></td>
+                            </tr>
+                            <tr>
+                                <td class="recent-applications__application">LOS-JKT-202609-0098</td>
+                                <td>08 Sep 2026</td>
+                                <td class="recent-applications__borrower">CV Berkah Jaya</td>
+                                <td>SME</td>
+                                <td>Jakarta</td>
+                                <td>Setyo B.</td>
+                                <td class="recent-applications__amount">Rp 450M</td>
+                                <td>24mo</td>
+                                <td>Receivables</td>
+                                <td><span class="recent-status recent-status--submitted">Submitted</span></td>
+                                <td><span class="recent-sla">4 days</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="recent-applications__footer">
+                    <p>Showing <strong>1-8</strong> of <strong>249</strong> applications</p>
+
+                    <nav class="recent-pagination" aria-label="Recent application pages">
+                        <button type="button" aria-label="Previous page"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button class="is-active" type="button" aria-current="page">1</button>
+                        <button type="button">2</button>
+                        <button type="button">3</button>
+                        <span>...</span>
+                        <button type="button">32</button>
+                        <button type="button" aria-label="Next page"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    </nav>
+
+                    <label class="recent-applications__rows">
+                        <span>Rows per page:</span>
+                        <select aria-label="Rows per page">
+                            <option selected>10</option>
+                            <option>25</option>
+                            <option>50</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="<?= base_url('assets/js/sidebar.js') ?>"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const statusCard = document.getElementById('application-status-card');
+            const slaCard = document.getElementById('sla-monitoring-card');
+            const portfolioCard = document.getElementById('portfolio-quality-card');
+
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    if (statusCard) statusCard.classList.add('is-loaded');
+                    if (slaCard) slaCard.classList.add('is-loaded');
+                    if (portfolioCard) portfolioCard.classList.add('is-loaded');
+                });
+            });
+        });
+    </script>
+    <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+</body>
+
+</html>
