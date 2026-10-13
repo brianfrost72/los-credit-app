@@ -3,8 +3,8 @@ import { routes } from "./routes";
 import { matchRoute } from "./matcher";
 import { guard } from "./guard";
 import { isAuthenticated } from "./auth";
-// import Sidebar from "@pages/sidebar";
-// import TopHeader from "@modules/top-header";
+import Sidebar from "@modules/sidebar";
+import TopHeader from "@modules/top-header";
 
 const layoutViews = import.meta.glob("/src/views/layouts/**/*.html", {
 	query: "?raw",
@@ -106,7 +106,10 @@ class Router {
 	}
 
 	private getPageModulePath(page: string): string {
-		const modulePage = page === "dashboard/index" ? "dashboard/main" : page;
+		const pageModulesByView: Record<string, string> = {
+			"dashboard/app-list": "dashboard/dashboard",
+		};
+		const modulePage = pageModulesByView[page] ?? page;
 		return `/src/apps/pages/${modulePage}.ts`;
 	}
 
@@ -468,10 +471,10 @@ class Router {
 				this.hideLoader();
 			}
 
-			// if (platform === "desktop") {
-			// 	Sidebar.render(location.pathname);
-			// 	TopHeader.render(location.pathname);
-			// }
+			if (platform === "desktop") {
+				Sidebar.mount(location.pathname);
+				TopHeader.mount(location.pathname);
+			}
 
 			let module: any;
 

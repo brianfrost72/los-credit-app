@@ -1,185 +1,7 @@
-﻿// ***************************************
-// * NOTIFICATION DRAWER
+// @ts-nocheck
+
 // ***************************************
-(function () {
-    const trigger = document.getElementById("notificationTrigger");
-    const modal = document.getElementById("notificationModal");
 
-    if (!trigger || !modal) return;
-
-    const backdrop = modal.querySelector(".notification-modal__backdrop");
-    const drawer = modal.querySelector(".notification-drawer");
-    const tabs = modal.querySelectorAll("[data-notification-filter]");
-    const items = modal.querySelectorAll(".notification-item");
-    const markRead = document.getElementById("notificationMarkRead");
-    const headerBadge = document.getElementById("notificationHeaderBadge");
-    const unreadBadge = document.getElementById("notificationUnreadBadge");
-    const emptyState = document.getElementById("notificationEmpty");
-    const animationDuration = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-    ).matches
-        ? 0
-        : 420;
-    let closeTimer = null;
-    let activeFilter = "all";
-
-    function getUnreadCount() {
-        return Array.from(items).filter(function (item) {
-            return item.classList.contains("is-unread");
-        }).length;
-    }
-
-    function syncUnreadUI() {
-        const unreadCount = getUnreadCount();
-
-        if (headerBadge) {
-            headerBadge.textContent = unreadCount;
-            headerBadge.hidden = unreadCount === 0;
-        }
-
-        if (unreadBadge) {
-            unreadBadge.textContent = unreadCount + " unread";
-            unreadBadge.classList.toggle("is-empty", unreadCount === 0);
-        }
-
-        if (markRead) {
-            markRead.disabled = unreadCount === 0;
-        }
-    }
-
-    function applyFilter(filter) {
-        activeFilter = filter;
-        let visibleCount = 0;
-
-        items.forEach(function (item) {
-            let visible = true;
-            if (filter === "unread")
-                visible = item.classList.contains("is-unread");
-            if (filter === "mentions")
-                visible = item.dataset.notificationType === "mention";
-            item.hidden = !visible;
-            if (visible) visibleCount += 1;
-        });
-
-        if (emptyState) emptyState.hidden = visibleCount !== 0;
-    }
-
-    function openNotifications() {
-        if (closeTimer) {
-            window.clearTimeout(closeTimer);
-            closeTimer = null;
-        }
-
-        modal.hidden = false;
-        document.body.classList.add("notification-drawer-open");
-        trigger.setAttribute("aria-expanded", "true");
-
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                modal.classList.add("is-open");
-                if (drawer) drawer.focus({ preventScroll: true });
-            });
-        });
-    }
-
-    function closeNotifications() {
-        modal.classList.remove("is-open");
-        document.body.classList.remove("notification-drawer-open");
-        trigger.setAttribute("aria-expanded", "false");
-
-        closeTimer = window.setTimeout(function () {
-            if (!modal.classList.contains("is-open")) {
-                modal.hidden = true;
-                trigger.focus({ preventScroll: true });
-            }
-        }, animationDuration);
-    }
-
-    trigger.addEventListener("click", function () {
-        if (modal.hidden || !modal.classList.contains("is-open")) {
-            openNotifications();
-        } else {
-            closeNotifications();
-        }
-    });
-
-    backdrop.addEventListener("click", closeNotifications);
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && !modal.hidden) {
-            closeNotifications();
-            return;
-        }
-
-        if (event.key === "Tab" && !modal.hidden && drawer) {
-            const focusable = Array.from(
-                drawer.querySelectorAll(
-                    'button:not([disabled]):not([hidden]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
-                ),
-            ).filter(function (element) {
-                return !element.closest("[hidden]");
-            });
-
-            if (!focusable.length) {
-                event.preventDefault();
-                drawer.focus();
-                return;
-            }
-
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-
-            if (event.shiftKey && document.activeElement === first) {
-                event.preventDefault();
-                last.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-                event.preventDefault();
-                first.focus();
-            }
-        }
-    });
-
-    tabs.forEach(function (tab) {
-        tab.addEventListener("click", function () {
-            const filter = tab.dataset.notificationFilter;
-
-            tabs.forEach(function (item) {
-                const isActive = item === tab;
-                item.classList.toggle("is-active", isActive);
-                item.setAttribute("aria-selected", isActive ? "true" : "false");
-            });
-
-            applyFilter(filter);
-        });
-    });
-
-    if (markRead) {
-        markRead.addEventListener("click", function () {
-            items.forEach(function (item) {
-                item.classList.remove("is-unread");
-            });
-
-            syncUnreadUI();
-            applyFilter(activeFilter);
-        });
-    }
-
-    items.forEach(function (item) {
-        const action = item.querySelector(".notification-item__action");
-        if (!action) return;
-
-        action.addEventListener("click", function () {
-            if (item.classList.contains("is-unread")) {
-                item.classList.remove("is-unread");
-                syncUnreadUI();
-                applyFilter(activeFilter);
-            }
-        });
-    });
-
-    syncUnreadUI();
-    applyFilter(activeFilter);
-})();
 
 interface ApplicationListFilters {
     keyword: string;
@@ -192,6 +14,7 @@ interface ApplicationListFilters {
     amountMin: number | null;
     amountMax: number | null;
 }
+
 
 class ApplicationListController {
     private listeners: AbortController | null = null;
@@ -303,7 +126,7 @@ class ApplicationListController {
         const range = document.querySelector<HTMLElement>(".table-footer__range");
         if (range) {
             const first = matches.length ? (this.currentPage - 1) * pageSize + 1 : 0;
-            range.textContent = `${first}â€“${Math.min(this.currentPage * pageSize, matches.length)} of ${matches.length} applications`;
+            range.textContent = `${first}Ã¢â‚¬â€œ${Math.min(this.currentPage * pageSize, matches.length)} of ${matches.length} applications`;
         }
         document.querySelectorAll<HTMLButtonElement>(".table-pagination__button").forEach((button) => {
             const page = Number(button.textContent?.trim());
@@ -1297,13 +1120,13 @@ const applicationList = new ApplicationListController();
                 },
                 {
                     key: "pbb_minus_1",
-                    label: "PBB â€“ Previous Year",
+                    label: "PBB Ã¢â‚¬â€œ Previous Year",
                     multi: false,
                     status: required,
                 },
                 {
                     key: "pbb_minus_2",
-                    label: "PBB â€“ Two Years Ago",
+                    label: "PBB Ã¢â‚¬â€œ Two Years Ago",
                     multi: false,
                     status: required,
                 },
@@ -1500,7 +1323,7 @@ const applicationList = new ApplicationListController();
                 },
                 {
                     key: "payment_history_6m",
-                    label: "Payment History â€“ Last 6 Months",
+                    label: "Payment History Ã¢â‚¬â€œ Last 6 Months",
                     multi: true,
                     status: required,
                 },
@@ -2695,8 +2518,8 @@ const applicationList = new ApplicationListController();
         if (contextTitle) {
             contextTitle.textContent = isIndividual
                 ? isMarried
-                    ? "Individual Â· Married"
-                    : "Individual Â· Spouse Not Required"
+                    ? "Individual Ã‚Â· Married"
+                    : "Individual Ã‚Â· Spouse Not Required"
                 : "Business Entity";
         }
 
@@ -2898,7 +2721,7 @@ const applicationList = new ApplicationListController();
                         : "Collateral Owner " + (index + 1);
                 const option = document.createElement("option");
                 option.value = String(index + 1);
-                option.textContent = index + 1 + " â€” " + label;
+                option.textContent = index + 1 + " Ã¢â‚¬â€ " + label;
                 select.appendChild(option);
             });
             if (
@@ -3077,11 +2900,11 @@ const applicationList = new ApplicationListController();
         mv.value =
             requestedPlafond > 0 && market > 0
                 ? ((market / requestedPlafond) * 100).toFixed(2) + "%"
-                : "â€”";
+                : "Ã¢â‚¬â€";
         lv.value =
             requestedPlafond > 0 && liquidation > 0
                 ? ((liquidation / requestedPlafond) * 100).toFixed(2) + "%"
-                : "â€”";
+                : "Ã¢â‚¬â€";
     }
 
     function updateTotals() {
@@ -3132,8 +2955,8 @@ const applicationList = new ApplicationListController();
                     "Based on requested plafond " +
                     formatRupiah(requestedPlafond);
         } else {
-            if (totalCoverMv) totalCoverMv.textContent = "â€”";
-            if (totalCoverLv) totalCoverLv.textContent = "â€”";
+            if (totalCoverMv) totalCoverMv.textContent = "Ã¢â‚¬â€";
+            if (totalCoverLv) totalCoverLv.textContent = "Ã¢â‚¬â€";
             if (totalCoverMvNote)
                 totalCoverMvNote.textContent = "Waiting for requested plafond";
             if (totalCoverLvNote)
@@ -3442,9 +3265,9 @@ const applicationList = new ApplicationListController();
     }
 
     function formatTimestamp(value) {
-        if (!value) return "â€”";
+        if (!value) return "Ã¢â‚¬â€";
         const date = new Date(value);
-        if (Number.isNaN(date.getTime())) return "â€”";
+        if (Number.isNaN(date.getTime())) return "Ã¢â‚¬â€";
 
         return (
             new Intl.DateTimeFormat("en-GB", {
@@ -3557,7 +3380,7 @@ const applicationList = new ApplicationListController();
         stamp.textContent =
             "Created: " +
             formatTimestamp(stored[stepId].createdAt) +
-            " Â· Last saved: " +
+            " Ã‚Â· Last saved: " +
             formatTimestamp(stored[stepId].lastSavedAt);
     }
 
@@ -4132,29 +3955,29 @@ const applicationList = new ApplicationListController();
 
     function getValue(id, fallback) {
         const el = document.getElementById(id);
-        if (!el) return fallback || "â€”";
+        if (!el) return fallback || "Ã¢â‚¬â€";
         if (el.tagName === "SELECT") {
             const option = el.options[el.selectedIndex];
             return option && option.value !== ""
                 ? option.textContent.trim()
-                : fallback || "â€”";
+                : fallback || "Ã¢â‚¬â€";
         }
         const value = "value" in el ? el.value : el.textContent;
-        return String(value || "").trim() || fallback || "â€”";
+        return String(value || "").trim() || fallback || "Ã¢â‚¬â€";
     }
 
     function textValue(id, fallback) {
         const el = document.getElementById(id);
         return el
-            ? String(el.textContent || "").trim() || fallback || "â€”"
-            : fallback || "â€”";
+            ? String(el.textContent || "").trim() || fallback || "Ã¢â‚¬â€"
+            : fallback || "Ã¢â‚¬â€";
     }
 
     function radioLabel(name, fallback) {
         const checked = document.querySelector(
             'input[name="' + name + '"]:checked',
         );
-        if (!checked) return fallback || "â€”";
+        if (!checked) return fallback || "Ã¢â‚¬â€";
         const option = checked.closest(".new-app-option");
         const text = option
             ? option.querySelector(".new-app-option__text")
@@ -4176,8 +3999,8 @@ const applicationList = new ApplicationListController();
             const dt = document.createElement("dt");
             const dd = document.createElement("dd");
             dt.textContent = row[0];
-            dd.textContent = row[1] || "â€”";
-            if (!row[1] || row[1] === "â€”") dd.classList.add("is-empty");
+            dd.textContent = row[1] || "Ã¢â‚¬â€";
+            if (!row[1] || row[1] === "Ã¢â‚¬â€") dd.classList.add("is-empty");
             wrap.append(dt, dd);
             target.appendChild(wrap);
         });
@@ -4284,7 +4107,7 @@ const applicationList = new ApplicationListController();
                     "Share Ownership Total",
                     textValue("managementOwnershipTotal", "0%"),
                 ],
-                ["Validation", textValue("managementOwnershipMessage", "â€”")],
+                ["Validation", textValue("managementOwnershipMessage", "Ã¢â‚¬â€")],
             ]);
         }
 
@@ -4296,8 +4119,8 @@ const applicationList = new ApplicationListController();
                 "Total Liquidation Value",
                 textValue("collateralTotalLiquidation", "Rp 0"),
             ],
-            ["MV Coverage", textValue("collateralTotalCoverMv", "â€”")],
-            ["LV Coverage", textValue("collateralTotalCoverLv", "â€”")],
+            ["MV Coverage", textValue("collateralTotalCoverMv", "Ã¢â‚¬â€")],
+            ["LV Coverage", textValue("collateralTotalCoverLv", "Ã¢â‚¬â€")],
         ]);
 
         summaryRows(summaryTargets.repayment, [

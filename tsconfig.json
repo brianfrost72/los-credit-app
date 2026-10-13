@@ -1,5 +1,15 @@
 ﻿{
   "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@vendors/*": ["./src/assets/vendors/*"],
+      "@router/*": ["./src/apps/*"],
+      "@helpers/*": ["./src/apps/helpers/*"],
+      "@core/*": ["./src/apps/core/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@pages/*": ["./src/apps/pages/*"]
+    },
     "target": "es2023",
     "module": "esnext",
     "lib": ["ES2023", "DOM"],

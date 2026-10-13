@@ -1,4 +1,10 @@
-﻿/* Aggre Capital - Main Content Design System
+@import "base/root.css";
+@import "components/button.css";
+@import "components/form.css";
+@import "components/sidebar.css";
+@import "pages/auth.css";
+
+/* Aggre Capital - Main Content Design System
    File: main.css
 
    Scope:
@@ -9747,4 +9753,3 @@ body.review-action-modal-open { overflow: hidden !important; }
         justify-self: start;
     }
 }
-

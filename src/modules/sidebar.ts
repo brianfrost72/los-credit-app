@@ -1,1 +1,1 @@
-﻿export { default } from "@pages/dashboard/sidebar";
+﻿export { default } from "../apps/components/desktop/sidebar";

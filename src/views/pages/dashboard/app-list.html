@@ -1,213 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application List &ndash; Aggre Capital Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('assets/css/sidebar.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
-</head>
-<body>
-    <?= $this->include('layouts/sidebar') ?>
-    <main class="main-section"><header class="top-header">
-    <div class="top-header__inner">
-        <nav class="top-header__breadcrumb" aria-label="Breadcrumb">
-            <a href="#">Dashboard</a>
-            <span class="top-header__breadcrumb-separator">/</span>
-            <span class="top-header__breadcrumb-current">Loan Applications</span>
-            <span class="top-header__breadcrumb-separator">/</span>
-            <span class="top-header__breadcrumb-current">Application Lists</span>
-        </nav>
-
-        <form class="top-header__search" role="search">
-            <i class="fa-solid fa-magnifying-glass top-header__search-icon" aria-hidden="true"></i>
-            <input
-                class="top-header__search-input"
-                type="search"
-                placeholder="Search application, borrower, NIK/NIB, contract number..."
-                aria-label="Search application">
-        </form>
-
-        <div class="top-header__actions">
-            <button class="top-header__filter" type="button">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span class="top-header__filter-label">All Branches</span>
-                <i class="fa-solid fa-chevron-down top-header__chevron" aria-hidden="true"></i>
-            </button>
-
-            <button class="top-header__filter" type="button">
-                <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                <span class="top-header__filter-label">This Month</span>
-                <i class="fa-solid fa-chevron-down top-header__chevron" aria-hidden="true"></i>
-            </button>
-
-            <button
-                class="top-header__notification"
-                id="notificationTrigger"
-                type="button"
-                aria-label="Open notifications"
-                aria-haspopup="dialog"
-                aria-controls="notificationModal"
-                aria-expanded="false">
-                <i class="fa-regular fa-bell" aria-hidden="true"></i>
-                <span class="top-header__notification-badge" id="notificationHeaderBadge">5</span>
-            </button>
-        </div>
-    </div>
-</header>
-
-<!-- Notification drawer modal -->
-<div class="notification-modal" id="notificationModal" hidden>
-    <button class="notification-modal__backdrop" type="button" aria-label="Close notifications"></button>
-
-    <aside
-        class="notification-drawer"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="notificationTitle"
-        tabindex="-1">
-
-        <div class="notification-drawer__header">
-            <div class="notification-drawer__title-row">
-                <div class="notification-drawer__title-group">
-                    <h2 id="notificationTitle">Notifications</h2>
-                    <span class="notification-unread-badge" id="notificationUnreadBadge">5 unread</span>
-                </div>
-
-                <button class="notification-mark-read" id="notificationMarkRead" type="button">
-                    Mark all as read
-                </button>
-            </div>
-
-            <div class="notification-tabs" role="tablist" aria-label="Notification filters">
-                <button class="notification-tab is-active" type="button" role="tab" aria-selected="true" data-notification-filter="all">All</button>
-                <button class="notification-tab" type="button" role="tab" aria-selected="false" data-notification-filter="unread">Unread</button>
-                <button class="notification-tab" type="button" role="tab" aria-selected="false" data-notification-filter="mentions">Mentions</button>
-            </div>
-        </div>
-
-        <div class="notification-drawer__body" id="notificationList">
-            <article class="notification-item notification-item--info is-unread" data-notification-type="unread">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-solid fa-list-check" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Application LOS-JKT-202609-0142 has been assigned to you.</p>
-                    <div class="notification-item__meta">
-                        <span>2 minutes ago</span><span>•</span><span>System</span>
-                    </div>
-                    <button class="notification-item__action notification-item__action--primary" type="button">Open Application</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--info is-unread" data-notification-type="unread">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-regular fa-circle-check" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Appraisal for PT Sinar Abadi has been completed. Market Value: Rp 1.50 B, Liquidation Value: Rp 1.15 B.</p>
-                    <div class="notification-item__meta">
-                        <span>45 minutes ago</span><span>•</span><span>Rudi Hermawan (Appraisal Staff)</span>
-                    </div>
-                    <button class="notification-item__action" type="button">View Appraisal</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--warning is-unread" data-notification-type="unread">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Application LOS-BDG-202609-0138 will exceed SLA in 4 hours. Current stage: Credit Analysis.</p>
-                    <div class="notification-item__meta">
-                        <span>1 hour ago</span><span>•</span><span>System — SLA Alert</span>
-                    </div>
-                    <button class="notification-item__action" type="button">Open Application</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--revision is-unread" data-notification-type="mention">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Committee returned application LOS-JKT-202609-0131 for revision. Reason: Additional collateral analysis required.</p>
-                    <div class="notification-item__meta">
-                        <span>2 hours ago</span><span>•</span><span>Budi Hartono (VP Business)</span>
-                    </div>
-                    <button class="notification-item__action" type="button">View Details</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--danger is-unread" data-notification-type="unread">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Payment for contract CTR-JKT-2026-0098 is overdue by 7 days. Borrower: CV Maju Bersama. Outstanding: Rp 15,800,000.</p>
-                    <div class="notification-item__meta">
-                        <span>3 hours ago</span><span>•</span><span>System — Collection Alert</span>
-                    </div>
-                    <button class="notification-item__action" type="button">View Contract</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--neutral" data-notification-type="read">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">Application LOS-SBY-202609-0127 has been submitted to Committee L1.</p>
-                    <div class="notification-item__meta">
-                        <span>Yesterday</span><span>•</span><span>System</span>
-                    </div>
-                    <button class="notification-item__action" type="button">View Application</button>
-                </div>
-            </article>
-
-            <article class="notification-item notification-item--neutral" data-notification-type="mention">
-                <span class="notification-item__rail" aria-hidden="true"></span>
-                <div class="notification-item__icon">
-                    <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
-                </div>
-                <div class="notification-item__content">
-                    <p class="notification-item__message">You were mentioned in a note for application LOS-JKT-202609-0098.</p>
-                    <div class="notification-item__meta">
-                        <span>Yesterday</span><span>•</span><span>Rina S.</span>
-                    </div>
-                    <button class="notification-item__action" type="button">View Mention</button>
-                </div>
-            </article>
-
-            <div class="notification-empty" id="notificationEmpty" hidden>
-                <div class="notification-empty__icon">
-                    <i class="fa-regular fa-bell-slash" aria-hidden="true"></i>
-                </div>
-                <strong>No notifications here</strong>
-                <span>You're all caught up for this filter.</span>
-            </div>
-        </div>
-
-        <div class="notification-drawer__footer">
-            <button class="notification-footer__link" type="button">View All Notifications</button>
-            <span class="notification-footer__separator" aria-hidden="true"></span>
-            <button class="notification-footer__link" type="button">Notification Settings</button>
-        </div>
-    </aside>
-</div>
-
-<div class="main-container">
-            <section class="kpi-row" aria-label="Dashboard key performance indicators" style="
+<section class="kpi-row" aria-label="Dashboard key performance indicators" style="
         grid-template-columns: repeat(7, minmax(0, 1fr));
         height: 110px;
         min-height: 110px;">
@@ -223,7 +14,7 @@
                     </div>
                 </article>
 
-                <a class="kpi-card" href="<?= base_url('drafts') ?>">
+                <a class="kpi-card" href="/drafts">
                     <div class="kpi-card__head">
                         <span class="kpi-card__label">Drafts</span>
                         <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
@@ -279,7 +70,7 @@
                     </div>
                 </article>
 
-                <a class="kpi-card" href="<?= base_url('returned-app') ?>">
+                <a class="kpi-card" href="/returned-app">
                     <div class="kpi-card__head">
                         <span class="kpi-card__label">Returned</span>
                         <i class="fa-solid fa-arrow-trend-up kpi-card__trend-icon" aria-hidden="true"></i>
@@ -393,7 +184,7 @@
 
                     <div class="app-list-filter__amount">
                         <input type="number" placeholder="Min">
-                        <span>â€“</span>
+                        <span>–</span>
                         <input type="number" placeholder="Max">
                     </div>
                 </div>
@@ -734,7 +525,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -779,7 +570,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -824,7 +615,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -869,7 +660,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -964,7 +755,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -1009,7 +800,7 @@
                                     </span>
                                 </td>
 
-                                <td>â€”</td>
+                                <td>—</td>
 
                                 <td>
                                     <div class="app-list-actions">
@@ -1031,7 +822,8 @@
          ====================================================== -->
                 <footer class="table-footer">
 
-                    <p class="table-footer__range" aria-live="polite">Showing <strong>1&ndash;12</strong> of
+                    <p>
+                        Showing <strong>1–12</strong> of
                         <strong>249</strong> applications
                     </p>
 
@@ -1071,7 +863,7 @@
                             4
                         </button>
 
-                        <span aria-hidden="true">â€¦</span>
+                        <span aria-hidden="true">…</span>
 
                         <button
                             type="button"
@@ -1106,9 +898,3 @@
                 </footer>
 
             </section>
-        </div>
-    </main>
-    <script src="<?= base_url('assets/js/sidebar.js') ?>"></script>
-    <script src="<?= base_url('assets/js/main.js') ?>"></script>
-</body>
-</html>

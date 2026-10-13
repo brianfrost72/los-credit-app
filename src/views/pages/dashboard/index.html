@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>Aggre Capital &ndash; Dashboard</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link
-        rel="stylesheet"
-        href="<?= base_url('assets/css/sidebar.css') ?>">
-    <link
-        rel="stylesheet"
-        href="src/assets/css/main.css">
-</head>
-
-<body>
-    <main class="main-section">
-
-        <div class="main-container">
-            <section class="greetings-and-ctas" aria-labelledby="dashboard-greeting">
+<section class="greetings-and-ctas" aria-labelledby="dashboard-greeting">
                 <div class="greeting">
                     <h1 class="greeting__title" id="dashboard-greeting">Good afternoon, Alexander</h1>
                     <p class="greeting__subtitle">Here's what requires your attention today.</p>
@@ -462,37 +427,37 @@
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--current"></span><strong>72%</strong></div>
                             <span class="dpd-legend__label">Current (DPD 0)</span>
-                            <span class="dpd-legend__meta">112 loans • Rp 52.4 B</span>
+                            <span class="dpd-legend__meta">112 loans â€¢ Rp 52.4 B</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--30"></span><strong>11%</strong></div>
                             <span class="dpd-legend__label">DPD 1 - 30</span>
-                            <span class="dpd-legend__meta">21 loans • Rp 8.1 B</span>
+                            <span class="dpd-legend__meta">21 loans â€¢ Rp 8.1 B</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--60"></span><strong>6%</strong></div>
                             <span class="dpd-legend__label">DPD 31 - 60</span>
-                            <span class="dpd-legend__meta">12 loans • Rp 3.2 B</span>
+                            <span class="dpd-legend__meta">12 loans â€¢ Rp 3.2 B</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--90"></span><strong>4%</strong></div>
                             <span class="dpd-legend__label">DPD 61 - 90</span>
-                            <span class="dpd-legend__meta">6 loans • Rp 1.8 B</span>
+                            <span class="dpd-legend__meta">6 loans â€¢ Rp 1.8 B</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--120"></span><strong>3%</strong></div>
                             <span class="dpd-legend__label">DPD 91 - 120</span>
-                            <span class="dpd-legend__meta">3 loans • Rp 850 M</span>
+                            <span class="dpd-legend__meta">3 loans â€¢ Rp 850 M</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--180"></span><strong>2%</strong></div>
                             <span class="dpd-legend__label">DPD 121 - 180</span>
-                            <span class="dpd-legend__meta">2 loans • Rp 400 M</span>
+                            <span class="dpd-legend__meta">2 loans â€¢ Rp 400 M</span>
                         </div>
                         <div class="dpd-legend__item">
                             <div class="dpd-legend__percent"><span class="dpd-dot dpd-dot--over"></span><strong>2%</strong></div>
                             <span class="dpd-legend__label">DPD &gt; 180</span>
-                            <span class="dpd-legend__meta">1 loan • Rp 120 M</span>
+                            <span class="dpd-legend__meta">1 loan â€¢ Rp 120 M</span>
                         </div>
                     </div>
                 </div>
@@ -686,27 +651,3 @@
                     </label>
                 </div>
             </section>
-
-        </div>
-    </main>
-
-    <script src="<?= base_url('assets/js/sidebar.js') ?>"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const statusCard = document.getElementById('application-status-card');
-            const slaCard = document.getElementById('sla-monitoring-card');
-            const portfolioCard = document.getElementById('portfolio-quality-card');
-
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    if (statusCard) statusCard.classList.add('is-loaded');
-                    if (slaCard) slaCard.classList.add('is-loaded');
-                    if (portfolioCard) portfolioCard.classList.add('is-loaded');
-                });
-            });
-        });
-    </script>
-    <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
-</body>
-
-</html>

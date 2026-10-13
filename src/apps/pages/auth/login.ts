@@ -1,4 +1,6 @@
-import Router from "@router/router";
+declare const API: any;
+declare const Encrypt: any;
+declare const swal: any;
 
 export default {
 	formData: {} as Record<string, string>,
@@ -21,7 +23,7 @@ export default {
 				const password = this.formData['password'] ?? '';
 
 				if (navigator.onLine) {
-					const wentOnline = await this.attemptOnlineLogin(email, password);
+					const wentOnline = await this.attemptOnlineLogin();
 					if (wentOnline) return;
 				}
 
@@ -53,7 +55,7 @@ export default {
 			}
 		});
 	},
-	async attemptOnlineLogin(email: string, password: string): Promise<boolean> {
+	async attemptOnlineLogin(): Promise<boolean> {
 		let result;
 
 		try {
